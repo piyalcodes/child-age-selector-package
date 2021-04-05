@@ -14,13 +14,11 @@
   ],
   "author": "piyalcodes <tenamax@gmail.com>",
   "license": "ISC",
-  
   "devDependencies": {
     "@babel/core": "^7.7.5",
-    "@babel/precet-react": "^7.7.4",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-react": "^7.13.13",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.2.2",
     "css-loader": "^3.3.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.46.0",
@@ -30,6 +28,6 @@
     "@material/react-button": "^0.15.0",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0"
+    "reactstrap": "^8.9.0"
   }
 }

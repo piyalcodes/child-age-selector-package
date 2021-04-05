@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { Button, Input, TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
+ 
 
 import './style.css'
 
@@ -8,19 +8,23 @@ const ChildAgeSelector = (props) => {
 
     const { setChilds, childs,
         setChildSelector, mainStyles,
-        buttonStyles, buttonClsses,
+        buttonStyles, buttonClasses,
         mainClasses, labels } = props;
 
-    useEffect(() => {
+    /*useEffect(() => {
         setChilds(childs);
-        document.addEventListener('mousedown', handleClickOutside);
-    }, []);
+        
+    }, []); */
+
+   
 
     const handleClickOutside = (event) => {
         if (!event.target.closest(".child-selector")) {
             setChildSelector(false)
         }
     }
+
+    document.addEventListener('mousedown', handleClickOutside);
 
     const removeChild = (e) => {
         e.preventDefault()
@@ -68,11 +72,11 @@ const ChildAgeSelector = (props) => {
                 {labels.childrace || 'Childrance'}
             </div>
             <div className="child-button selector-button">
-                <Button style={{ ...buttonStyles }} color="primary" className={`site-button outline child-update ${buttonClsses}`} onClick={(e) => removeChild(e)}>-</Button>
+                <button style={{ ...buttonStyles }} color="primary" className={`site-button outline child-update ${buttonClasses}`} onClick={(e) => removeChild(e)}>-</button>
 
                 <span className="child-selected-number">{childs && childs.length || 0}</span>
 
-                <Button style={{ ...buttonStyles }} color="primary" className={`site-button outline child-update ${buttonClsses}`} onClick={(e) => addChild(e)}>+</Button>
+                <button style={{ ...buttonStyles }} color="primary" className={`site-button outline child-update ${buttonClasses}`} onClick={(e) => addChild(e)}>+</button>
             </div>
         </div>
         <div className="Clearfix"></div>
@@ -86,7 +90,7 @@ const ChildAgeSelector = (props) => {
                                 childs.map((age, index) => <li key={index} className="child-age-dropdown" >
 
 
-                                    {labels.childrace ? labels.childLabel.indexOf("{number}") !== -1 ?
+                                    {labels.childLabel ? labels.childLabel.indexOf("{number}") !== -1 ?
                                         labels.childLabel.replace("{number}", parseInt(index + 1)) : labels.childLabel : 'Child'} {" "}
 
                                     <select key={index} className="child-age-select" onChange={(e) => addChildAge(index, e.target.value)}>
@@ -106,7 +110,7 @@ ChildAgeSelector.propTypes = {
     searchData: PropTypes.object.isRequired,
     mainStyles: PropTypes.object,
     mainClasses: PropTypes.string,
-    buttonClsses: PropTypes.string,
+    buttonClasses: PropTypes.string,
     labels: PropTypes.object
 }
 
@@ -115,7 +119,7 @@ ChildAgeSelector.defaultProps = {
     buttonStyles: {},
     mainStyles: {},
     mainClasses: '',
-    buttonClsses: '',
+    buttonClasses: '',
     labels: {}
 }
 
