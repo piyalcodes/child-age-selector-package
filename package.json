@@ -1,8 +1,9 @@
 {
   "name": "child-age-selector-package",
   "version": "1.0.0",
-  "description": "",
+  "description": "child-age-selector-package",
   "main": "./build/index.js",
+  "repository": "git@github.com:piyalcodes/child-age-selector-package.git",
   "scripts": {
     "build": "webpack"
   },
@@ -11,8 +12,9 @@
     "age",
     "selector"
   ],
-  "author": "piyalcodes",
+  "author": "piyalcodes <tenamax@gmail.com>",
   "license": "ISC",
+  
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/precet-react": "^7.7.4",
