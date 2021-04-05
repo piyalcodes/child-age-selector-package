@@ -1,6 +1,6 @@
 {
   "name": "child-age-selector-package",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "child-age-selector-package",
   "main": "./build/index.js",
   "repository": "git@github.com:piyalcodes/child-age-selector-package.git",
