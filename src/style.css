@@ -1,0 +1,71 @@
+ 
+
+.child-selector {
+    padding: 20px 10px 10px 10px;
+    position: absolute;
+    background: white;
+    width: 300px;
+    min-height: 70px;
+    border: 1px solid #c8baba;
+    border-radius: 5px;
+    margin-top: 3px;
+    z-index: 99999;
+    color: black; 
+    right: 11%;
+  }
+
+  .child-title {
+    width: 50%;
+    display: inline-block;
+  }
+
+  .child-selected-number {
+    padding: 10px;
+    display: inline-block;
+  } 
+
+  .child-button {
+    width: 30%;
+    display: inline-block;
+  }
+  
+  .selected-childs {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .child-selector button {
+    padding: 0 10px;
+    display: inline-block;
+  }
+  
+  .child-selector ul {
+    list-style: none;
+  }
+  
+  .child-age-heading {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .child-age-dropdown {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .close-icon {
+    float: right;
+    top: 5px;
+    position: absolute;
+    right: 5px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: #cc4242;
+    width: 20px;
+    color: white;
+    line-height: 19px;
+    height: 20px;
+    cursor: pointer;
+  }
+ 
+ 
