@@ -6,7 +6,10 @@ import './style.css'
 
 const ChildAgeSelector = (props) => {
 
-    const { setChilds, childs, setChildSelector, mainStyles, buttonStyles } = props;
+    const { setChilds, childs,
+        setChildSelector, mainStyles,
+        buttonStyles, buttonClsses,
+        mainClasses, labels } = props;
 
     useEffect(() => {
         setChilds(childs);
@@ -34,7 +37,7 @@ const ChildAgeSelector = (props) => {
 
         let select = [];
         for (let i = 0; i <= 12; i++) {
-            select.push(<option value={i} key={i} selected={age === i}>{i} year(s) old</option>)
+            select.push(<option value={i} key={i} selected={age === i}>{i} {labels.dropDownLabel || ' year(s) old'}</option>)
         }
         return select;
     }
@@ -58,30 +61,35 @@ const ChildAgeSelector = (props) => {
     }
 
     const t = (d) => d;
-    return (<div className="child-selector" style={{...mainStyles}}>
+    return (<div className={`child-selector ${mainClasses}`} style={{ ...mainStyles }}>
         <div className="close-icon" onClick={() => { setChildSelector(false) }}>X</div>
         <div >
             <div className="child-title selector">
-                {t("children")}
+                {labels.childrace || 'Childrance'}
             </div>
             <div className="child-button selector-button">
-                <Button style={{...buttonStyles}} color="primary" className="site-button outline child-update" onClick={(e) => removeChild(e)}>-</Button>
-            
+                <Button style={{ ...buttonStyles }} color="primary" className={`site-button outline child-update ${buttonClsses}`} onClick={(e) => removeChild(e)}>-</Button>
+
                 <span className="child-selected-number">{childs && childs.length || 0}</span>
- 
-                <Button style={{...buttonStyles}} color="primary" className="site-button outline child-update" onClick={(e) => addChild(e)}>+</Button>
+
+                <Button style={{ ...buttonStyles }} color="primary" className={`site-button outline child-update ${buttonClsses}`} onClick={(e) => addChild(e)}>+</Button>
             </div>
         </div>
         <div className="Clearfix"></div>
         <div >
             <div className="selected-childs">
-                 
+
                 {childs && childs.length >= 1 &&
                     <>
                         <ul className="mt-2" >
                             {
                                 childs.map((age, index) => <li key={index} className="child-age-dropdown" >
-                                    {t("child")} {parseInt(index + 1)} is <select key={index} className="child-age-select" onChange={(e) => addChildAge(index, e.target.value)}>
+
+
+                                    {labels.childrace ? labels.childLabel.indexOf("{number}") !== -1 ?
+                                        labels.childLabel.replace("{number}", parseInt(index + 1)) : labels.childLabel : 'Child'} {" "}
+
+                                    <select key={index} className="child-age-select" onChange={(e) => addChildAge(index, e.target.value)}>
                                         {getAgeSelected(age)}
                                     </select>
                                 </li>)
@@ -95,13 +103,20 @@ const ChildAgeSelector = (props) => {
 
 ChildAgeSelector.propTypes = {
     setChilds: PropTypes.func.isRequired,
-    searchData: PropTypes.object
+    searchData: PropTypes.object.isRequired,
+    mainStyles: PropTypes.object,
+    mainClasses: PropTypes.string,
+    buttonClsses: PropTypes.string,
+    labels: PropTypes.object
 }
 
 ChildAgeSelector.defaultProps = {
-    searchData: {},
+    setChilds: () => {},
     buttonStyles: {},
-    mainStyles: {}
+    mainStyles: {},
+    mainClasses: '',
+    buttonClsses: '',
+    labels: {}
 }
 
 export default ChildAgeSelector;
