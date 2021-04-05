@@ -1,5 +1,5 @@
 
-Run: `npm -i --save child-age-selector-package`
+Run: `npm i --save child-age-selector-package`
 
 in your react component make a variable to set the display status of selector (E:g: childSelector) 
 
